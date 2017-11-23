@@ -1,4 +1,4 @@
-package cn.lee.hackerrank.algrithm.implementation;
+package cn.lee.hackerrank.algrithms.implementation;
 
 import java.util.Scanner;
 
