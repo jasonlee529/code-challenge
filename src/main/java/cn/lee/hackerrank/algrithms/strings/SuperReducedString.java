@@ -1,7 +1,5 @@
 package cn.lee.hackerrank.algrithms.strings;
 
-import java.util.Scanner;
-
 /**
  * <pre>
  *     Steve has a string, , consisting of  lowercase English alphabetic letters. In one operation, he can delete any pair of adjacent letters with same value. For example, string "aabcc" would become either "aab" or "bcc" after operation.
@@ -67,15 +65,31 @@ import java.util.Scanner;
 public class SuperReducedString {
     static String super_reduced_string(String s) {
         // Complete this function
-        String result = "";
-
-        return result;
+        int maxLength = s.length();
+        int cur = 0;
+        while (maxLength - 1 > cur) {
+            if (s.charAt(cur) == s.charAt(cur + 1)) {
+                s = s.replace(new String(new char[]{s.charAt(cur), s.charAt(cur)}), "");
+                cur = 0;
+                maxLength = s.length();
+            } else {
+                cur++;
+            }
+        }
+        if(s.length() ==0){
+            s = "Empty String";
+        }
+        return s;
     }
 
     public static void main(String[] args) {
-        Scanner in = new Scanner(System.in);
-        String s = in.next();
-        String result = super_reduced_string(s);
+//        Scanner in = new Scanner(System.in);
+//        String s = in.next();
+        String result = super_reduced_string("aab");
         System.out.println(result);
+        System.out.println(super_reduced_string("aa"));
+        System.out.println(super_reduced_string("baab"));
+        System.out.println(super_reduced_string("aaabccddd"));
+        System.out.println(super_reduced_string("aa"));
     }
 }
