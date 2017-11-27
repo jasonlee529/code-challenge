@@ -61,15 +61,34 @@ public class InsertionSortPart1 {
         // Fill up this function
         int t = ar[ar.length - 1];
         for (int i = ar.length - 2; i >= 0; i--) {
-            ar[i + 1] = t >= ar[i] ? t : ar[i];
-            for (int s : ar) {
-                System.out.print(s + " ");
+            if (t >= ar[i]) {
+                ar[i + 1] = t;
+                printArray(ar);
+                break;
+            } else {
+                ar[i + 1] = ar[i];
+                printArray(ar);
             }
-            System.out.println();
+            if (i == 0) {
+                ar[i] = t;
+                printArray(ar);
+            }
         }
     }
 
+    private static void printArray(int[] ar) {
+        for (int n : ar) {
+            System.out.print(n + " ");
+        }
+        System.out.println("");
+    }
+
+
     public static void main(String[] args) {
         insertIntoSorted(new int[]{2, 4, 6, 8, 3});
+        insertIntoSorted(new int[]{1, 3, 5, 9, 13, 22, 27, 35, 46, 51, 55, 83, 87, 23});
+        insertIntoSorted(new int[]{2, 3, 4, 5, 6, 7, 8, 9, 10, 1});
+
+
     }
 }
