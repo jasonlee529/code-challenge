@@ -85,9 +85,10 @@ public class InsertionSortPart1 {
 
 
     public static void main(String[] args) {
-        insertIntoSorted(new int[]{2, 4, 6, 8, 3});
-        insertIntoSorted(new int[]{1, 3, 5, 9, 13, 22, 27, 35, 46, 51, 55, 83, 87, 23});
-        insertIntoSorted(new int[]{2, 3, 4, 5, 6, 7, 8, 9, 10, 1});
+        insertIntoSorted(new int[]{4, 2});
+//        insertIntoSorted(new int[]{2, 4, 6, 8, 3});
+//        insertIntoSorted(new int[]{1, 3, 5, 9, 13, 22, 27, 35, 46, 51, 55, 83, 87, 23});
+//        insertIntoSorted(new int[]{2, 3, 4, 5, 6, 7, 8, 9, 10, 1});
 
 
     }
