@@ -1,4 +1,4 @@
-package cn.lee.hackerrank.algrithms.sorting.tutorial;
+package cn.lee.hackerrank.algrithms.sorting.tutorial.insertionsort;
 
 /**
  * <pre>
