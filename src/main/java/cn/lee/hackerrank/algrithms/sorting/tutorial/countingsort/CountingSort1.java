@@ -50,7 +50,7 @@ public class CountingSort1 {
     }
 
     static void couting(int[] ar) {
-        int[] result = new int[ar.length];
+        int[] result = new int[100];
         for (int t : ar) {
             result[t] = result[t] + 1;
         }
