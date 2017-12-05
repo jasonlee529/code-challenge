@@ -122,7 +122,7 @@ public class TheFullCountingSort {
         for (int i = 0; i < ar.length; i++) {
             String[] tmp = ar[i].split(" ");
             int t = Integer.parseInt(tmp[0]);
-            String str = i < ar.length / 2 ? tmp[1].replace("w*", "-") : tmp[1];
+            String str = i < ar.length / 2 ? tmp[1].replaceAll("w*", "-") : tmp[1];
             result[t] = result[t] == null ? new StringBuilder() : result[t];
             result[t].append(str).append(" ");
         }
