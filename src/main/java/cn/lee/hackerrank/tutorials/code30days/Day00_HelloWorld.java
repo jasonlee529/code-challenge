@@ -36,7 +36,7 @@ import java.util.Scanner;
  * </pre>
  * Created by jason on 17-12-1.
  */
-public class HelloWorld {
+public class Day00_HelloWorld {
 
     public static void main(String[] args) {
         // Create a Scanner object to read input from stdin.
