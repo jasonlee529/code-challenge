@@ -48,6 +48,8 @@ import java.util.Scanner;
 public class CaesarCipher {
 
     public static void main(String[] args) {
+        cipher("middle-Outz", 2);
+
         /* Enter your code here. Read input from STDIN. Print output to STDOUT. Your class should be named Solution. */
         Scanner in = new Scanner(System.in);
         int s = in.nextInt();
@@ -61,8 +63,11 @@ public class CaesarCipher {
         for (int i = 0; i < str.length(); i++) {
             char src = str.charAt(i);
             char dest = src;
-            if (src >= 'a' && src <= 'z' || src >= 'A' && src <= 'X') {
-                dest = (char) ((int) src + n);
+            if (src >= 'a' && src <= 'z'){
+                dest = (char)((src-'a'+n)%26 +'a');
+            }
+            if ( src >= 'A' && src <= 'Z') {
+                dest = (char)((src-'A'+n)%26 +'A');
             }
             result.append(dest);
         }
