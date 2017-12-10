@@ -1,5 +1,7 @@
 package cn.lee.hackerrank.algrithms.sorting.tutorial.countingsort;
 
+import java.util.Scanner;
+
 /**
  * <pre>
  *     In this challenge you need to print the data that accompanies each integer in a list. In addition, if two strings have the same integers, you need to print the strings in their original order. Hence, your sorting algorithm should be stable, i.e. the original order should be maintained for equal elements.
@@ -88,13 +90,15 @@ public class TheFullCountingSort {
 
     public static void main(String[] args) {
 
-//        Scanner sc = new Scanner(System.in);
-//        int n = sc.nextInt();
-//        String[] ar = new String[n];
-//        for (int i = 0; i < n; i++) {
-//            ar[i] = sc.nextLine();
-//        }
-//        fullSorting(ar);
+        regx("ab");
+        Scanner sc = new Scanner(System.in);
+        int n = sc.nextInt();
+        String[] ar = new String[n];
+        sc.nextLine();
+        for (int i = 0; i < n; i++) {
+            ar[i] = sc.nextLine();
+        }
+        fullSorting(ar);
         fullSorting(new String[]{"0 ab",
                 "6 cd",
                 "0 ef",
@@ -117,12 +121,16 @@ public class TheFullCountingSort {
                 "4 the"});
     }
 
+    private static void regx(String ab) {
+        System.out.println(ab.replaceAll("\\w","--"));
+    }
+
     private static void fullSorting(String[] ar) {
         StringBuilder[] result = new StringBuilder[ar.length];
         for (int i = 0; i < ar.length; i++) {
             String[] tmp = ar[i].split(" ");
             int t = Integer.parseInt(tmp[0]);
-            String str = i < ar.length / 2 ? tmp[1].replaceAll("w*", "-") : tmp[1];
+            String str = i < ar.length / 2 ? "-" : tmp[1];
             result[t] = result[t] == null ? new StringBuilder() : result[t];
             result[t].append(str).append(" ");
         }
@@ -131,5 +139,7 @@ public class TheFullCountingSort {
                 System.out.print(sb.toString() + "");
             }
         }
+        System.out.println();
     }
+
 }
