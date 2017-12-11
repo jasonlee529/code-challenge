@@ -56,6 +56,7 @@ public class ClosestNumbers {
 
 
     public static void main(String[] args) {
+        closetNumber(new int[]{-20, -3916237, -357920, -3620601, 7374819, -7330761, 30, 6246457, -6461594, 266854});
         /* Enter your code here. Read input from STDIN. Print output to STDOUT. Your class should be named Solution. */
         Scanner sc = new Scanner(System.in);
         int n = sc.nextInt();
@@ -63,6 +64,50 @@ public class ClosestNumbers {
         for (int i = 0; i < n; i++) {
             ar[i] = sc.nextInt();
         }
+        sc.close();
+        closetNumber(ar);
+    }
 
+    private static void closetNumber(int[] ar) {
+        insertionSort(ar);
+        int[][] k = new int[ar.length-1][2];
+        int[] m = new int[ar.length-1];
+        for (int i = 0; i < ar.length - 1; i++) {
+            k[i][0] = ar[i];
+            k[i][1] = ar[i + 1];
+            m[i] = Math.abs(ar[i + 1] - ar[i]);
+        }
+        int min = findMin(m);
+        for (int i = 0; i < m.length; i++) {
+            if (m[i] == min) {
+                printArray(k[i]);
+            }
+        }
+    }
+
+    private static void printArray(int[] ints) {
+        for (int i : ints) {
+            System.out.print(i + " ");
+        }
+    }
+
+    private static int findMin(int[] m) {
+        int min = m[0];
+        for (int t : m) {
+            min = min < t ? min : t;
+        }
+        return min;
+    }
+
+    public static void insertionSort(int[] A) {
+        for (int i = 1; i < A.length; i++) {
+            int value = A[i];
+            int j = i - 1;
+            while (j >= 0 && A[j] > value) {
+                A[j + 1] = A[j];
+                j = j - 1;
+            }
+            A[j + 1] = value;
+        }
     }
 }
