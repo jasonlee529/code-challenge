@@ -99,7 +99,7 @@ public class ClosestNumbers {
         return min;
     }
 
-    public static void insertionSort(int[] A) {
+    private static void insertionSort(int[] A) {
         for (int i = 1; i < A.length; i++) {
             int value = A[i];
             int j = i - 1;
