@@ -1,5 +1,7 @@
 package cn.lee.hackerrank.tutorials.code30days;
 
+import java.util.Scanner;
+
 /**
  * https://www.hackerrank.com/challenges/30-2d-arrays/problem
  * <pre>
@@ -75,4 +77,33 @@ package cn.lee.hackerrank.tutorials.code30days;
  * Created by jason on 17-12-12.
  */
 public class Day11_2DArrays {
+
+
+    public static void main(String[] args) {
+        int[][] arr = inputArray();
+        hourglass(arr);
+    }
+
+    private static int[][] inputArray() {
+        Scanner in = new Scanner(System.in);
+        int arr[][] = new int[6][6];
+        for (int i = 0; i < 6; i++) {
+            for (int j = 0; j < 6; j++) {
+                arr[i][j] = in.nextInt();
+            }
+        }
+        return arr;
+    }
+
+    private static void hourglass(int[][] arr) {
+        int max = Integer.MIN_VALUE;
+        for (int i = 0; i < arr.length - 2; i++) {
+            for (int j = 0; j < arr[i].length - 2; j++) {
+                int s = 0;
+                s += arr[i][j] + arr[i][j + 1] + arr[i][j + 2] + arr[i + 1][j + 1] + arr[i + 2][j] + arr[i + 2][j + 1] + arr[i + 2][j + 2];
+                max = max > s ? max : s;
+            }
+        }
+        System.out.println(max);
+    }
 }
