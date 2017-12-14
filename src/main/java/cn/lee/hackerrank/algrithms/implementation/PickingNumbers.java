@@ -1,6 +1,6 @@
 package cn.lee.hackerrank.algrithms.implementation;
 
-import java.util.Scanner;
+import java.util.*;
 
 /**
  * https://www.hackerrank.com/challenges/picking-numbers/problem
@@ -48,29 +48,39 @@ import java.util.Scanner;
 public class PickingNumbers {
 
     public static void main(String[] args) {
+        System.out.println(pickNumbers(new int[]{4, 97, 5, 97, 97, 4, 97, 4, 97, 97, 97, 97, 4, 4, 5, 5, 97, 5, 97, 99, 4, 97, 5, 97, 97, 97, 5, 5, 97, 4, 5, 97, 97, 5, 97, 4, 97, 5, 4, 4, 97, 5, 5, 5, 4, 97, 97, 4, 97, 5, 4, 4, 97, 97, 97, 5, 5, 97, 4, 97, 97, 5, 4, 97, 97, 4, 97, 97, 97, 5, 4, 4, 97, 4, 4, 97, 5, 97, 97, 97, 97, 4, 97, 5, 97, 5, 4, 97, 4, 5, 97, 97, 5, 97, 5, 97, 5, 97, 97, 97}));
         Scanner in = new Scanner(System.in);
         int n = in.nextInt();
         int[] a = new int[n];
         for (int a_i = 0; a_i < n; a_i++) {
             a[a_i] = in.nextInt();
         }
-        pickNumbers(a);
+        System.out.println(pickNumbers(a));
     }
 
-    private static void pickNumbers(int[] a) {
-        for (int i = a.length - 1; i >= 0; i--) {
-
+    private static int pickNumbers(int[] a) {
+        Map<Integer, Integer> datas = new LinkedHashMap<Integer, Integer>();
+        for (int i : a) {
+            if (!datas.containsKey(i)) {
+                datas.put(i, 0);
+            }
+            datas.put(i, datas.get(i) + 1);
         }
-    }
-
-    private int maxMinus(int[] a) {
-        int t = 0;
-        for (int i = 0; i < a.length - 1; i++) {
-            for (int j = i + 1; j < a.length; j++) {
-                t = t > Math.abs(a[i] - a[j]) ? t : Math.abs(a[i] - a[j]);
+        List<Map.Entry<Integer, Integer>> list = new ArrayList<Map.Entry<Integer, Integer>>(datas.entrySet());
+        Collections.sort(list, new Comparator<Map.Entry<Integer, Integer>>() {
+            public int compare(Map.Entry<Integer, Integer> o1, Map.Entry<Integer, Integer> o2) {
+                return o2.getKey() - o1.getKey();
+            }
+        });
+        int m = list.get(0).getValue();
+        for (int i = 1; i < list.size(); i++) {
+            m = m > list.get(i).getValue() ? m : list.get(i).getValue();
+            if (Math.abs(list.get(i).getKey() - list.get(i - 1).getKey()) <= 1) {
+                int t = list.get(i).getValue() + list.get(i - 1).getValue();
+                m = m > t ? m : t;
             }
         }
-        return t;
+        return m;
     }
 
 }
