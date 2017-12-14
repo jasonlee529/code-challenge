@@ -1,8 +1,5 @@
 package cn.lee.hackerrank.algrithms.implementation;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
 import java.util.Scanner;
 
 /**
@@ -58,7 +55,7 @@ public class BiggerisGreater {
     public static void main(String[] args) {
         /* Enter your code here. Read input from STDIN. Print output to STDOUT. Your class should be named Solution. */
         // squgtpsijhqpqvfbvldseqerinejdiivrqjflpphtkycofrkuzrvwucohhvoylqafwervlhiscwvfbbmhevgmccbrpgnwptxhr
-        biggest(new String[]{"abcd"
+        biggest(new String[]{"squgtpsijhqpqvfbvldseqerinejdiivrqjflpphtkycofrkuzrvwucohhvoylqafwervlhiscwvfbbmhevgmccbrpgnwptxhr"
         });
         // biggest(input());
     }
@@ -71,53 +68,34 @@ public class BiggerisGreater {
 
     private static String findBigest(String str) {
         String result = "no answer";
-        List<String> list = new ArrayList<String>();
-        arranged(list, str.toCharArray(), 0);
-        int min = Integer.MAX_VALUE;
-        for (String s : list) {
-            int t = compare(str, s);
-            if (t > 0 && t < min) {
-                result = s;
-                min = t;
-            }
+        String r = nextPermutation(str.toCharArray());
+        if (!str.equalsIgnoreCase(r)) {
+            result = r;
         }
         System.out.println(result);
         return result;
     }
 
-    private static int compare(String src, String dest) {
-        int a1 = 0;
-        for (int i = 0; i < src.length(); i++) {
-            int t = dest.charAt(i) - src.charAt(i);
-            a1 += t * Math.pow(26, src.length() - i);
+    private static String nextPermutation(char[] array) {
+        int i = array.length - 1;
+        while (i > 0 && array[i - 1] >= array[i]) {
+            i--;
         }
-        return a1;
-    }
-
-    private static void arranged(List<String> result, char[] chs, int start) {
-        char[] des = new char[chs.length];
-        for (int i = 0; i < chs.length; i++) {
-            for (int j = 0; j < chs.length; j++) {
-
-            }
+        if (i <= 0) {
+            return new String(array);
         }
-        if (start == (chs.length - 1)) {
-
+        int j = array.length - 1;
+        while (array[j] <= array[i - 1]) {
+            j--;
         }
-        if (start == chs.length - 1) {
-            Arrays.toString(chs);
-            //如果已经到了数组的最后一个元素，前面的元素已经排好，输出。
+        swap(array, i - 1, j);
+        j = array.length - 1;
+        while (i < j) {
+            swap(array, i, j);
+            i++;
+            j--;
         }
-        for (int i = start; i <= chs.length - 1; i++) {
-            //把第一个元素分别与后面的元素进行交换，递归的调用其子数组进行排序
-            swap(chs, i, start);
-            arranged(result, chs, start + 1);
-            result.add(new String(chs));
-            swap(chs, i, start);
-            //子数组排序返回后要将第一个元素交换回来。
-            //如果不交换回来会出错，比如说第一次1、2交换，第一个位置为2，子数组排序返回后如果不将1、2
-            //交换回来第二次交换的时候就会将2、3交换，因此必须将1、2交换使1还是在第一个位置
-        }
+        return new String(array);
     }
 
     public static void swap(char chs[], int i, int j) {
