@@ -55,7 +55,52 @@ Suggest Edits
 Current Buffer (saved locally, editable)
 
  */
-select h.hacker_id,h.name,count(1) cnt from Hackers h join Challenges c on h.hacker_id=c.hacker_id
-  join (select max(count(1)) cnt from Challenges c group by c.hacker_id) t on cnt <> t.cnt
-group by h.hacker_id,h.name
-order by cnt desc,h.hacker_id
+SELECT
+  h.hacker_id,
+  h. NAME,
+  count(1) cnt
+FROM
+  Hackers h
+  JOIN Challenges c ON h.hacker_id = c.hacker_id
+GROUP BY
+  h.hacker_id,
+  h. NAME
+HAVING
+  cnt IN (
+    SELECT
+      cnt
+    FROM
+      (
+        SELECT
+          hacker_id,
+          count(challenge_id) cnt
+        FROM
+          Challenges c
+        GROUP BY
+          c.hacker_id
+      ) t
+    GROUP BY
+      t.cnt
+    HAVING
+      count(1) = 1
+      OR (
+        count(1) > 1
+        AND cnt = (
+          SELECT
+            max(cnt) cnt
+          FROM
+            (
+              SELECT
+                hacker_id,
+                count(challenge_id) cnt
+              FROM
+                Challenges c
+              GROUP BY
+                c.hacker_id
+            ) t2
+        )
+      )
+  )
+ORDER BY
+  cnt DESC,
+  h.hacker_id;
