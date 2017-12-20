@@ -29,7 +29,9 @@ class Calculator2 implements AdvancedArithmetic {
 
             if (n % i == 0) {
                 sum += i;
-                sum += n / i;
+                if(i !=n/i){
+                    sum += n / i;
+                }
             }
         }
         return sum;
