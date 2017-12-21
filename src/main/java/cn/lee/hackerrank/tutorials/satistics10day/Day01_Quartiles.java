@@ -65,16 +65,26 @@ public class Day01_Quartiles {
 //        }
         int n = 9;
         int[] ar = new int[]{3, 7, 8, 5, 12, 14, 21, 13, 18};
+        int[] r = quartiles(n, ar);
+        for (int i : r) {
+            System.out.println(i);
+        }
+    }
+
+    private static int[] quartiles(int n, int[] ar) {
         Arrays.sort(ar);
         int a1 = (int) Math.floor(n / 2);
         int a2 = (int) Math.ceil(n / 2);
         int[] left = new int[a1];
         int[] right = new int[a2];
         System.arraycopy(ar, 0, left, 0, a1);
-        System.arraycopy(ar, a2+1, right, 0, n - a2 - 1);
-        System.out.println(median(left));
-        System.out.println(median(ar));
-        System.out.println(median(right));
+        System.arraycopy(ar, a2 + 1, right, 0, n - a2 - 1);
+        int[] r = new int[3];
+        r[0] = median(left);
+        r[1] = median(ar);
+        r[2] = median(right);
+        return r;
+
     }
 
     private static int median(int[] ar) {
