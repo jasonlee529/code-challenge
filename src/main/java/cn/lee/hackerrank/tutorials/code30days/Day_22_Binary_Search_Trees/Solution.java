@@ -80,6 +80,17 @@ public class Solution {
     }
 
     private static int getHeight(Node root) {
-        return 0;
+        int height = 0;
+        if (root == null) {
+            return 0;
+        }
+        if (root.left == null && root.right == null) {
+            return 0;
+        } else {
+            int l = getHeight(root.left);
+            int r = getHeight(root.right);
+            height = l > r ? l : r;
+        }
+        return height + 1;
     }
 }
