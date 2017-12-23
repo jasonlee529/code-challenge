@@ -1,4 +1,4 @@
-package cn.lee.hackerrank.tutorials.satistics10day.Day04_Binomial_Distribution_I;
+package cn.lee.hackerrank.tutorials.satistics10day.Day04.Binomial_Distribution_I;
 
 /**
  * https://www.hackerrank.com/challenges/s10-binomial-distribution-1/problem
