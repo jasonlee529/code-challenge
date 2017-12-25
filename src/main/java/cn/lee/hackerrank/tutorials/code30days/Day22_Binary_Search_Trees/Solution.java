@@ -1,4 +1,4 @@
-package cn.lee.hackerrank.tutorials.code30days.Day_22_Binary_Search_Trees;
+package cn.lee.hackerrank.tutorials.code30days.Day22_Binary_Search_Trees;
 
 import java.util.Scanner;
 
