@@ -33,6 +33,7 @@ import org.apache.commons.math3.special.Gamma;
  * </pre>
  * Created by jason on 17-12-25.
  */
+@SuppressWarnings("")
 public class Solution {
     public static void main(String[] args) {
         double m = 20;
