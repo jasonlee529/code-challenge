@@ -51,6 +51,10 @@ public class Solution {
         return 0.5 * erf(-dev / (o * Math.sqrt(2)));
     }
 
+    private static double erf2(double x) {
+        return 0.8025873486341526;
+    }
+
     private static double erf(double x) {
         if (Math.abs(x) > 40) {
             return x > 0 ? 0 : 2;
