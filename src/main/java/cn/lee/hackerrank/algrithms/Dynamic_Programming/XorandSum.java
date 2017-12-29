@@ -30,15 +30,19 @@ import java.util.Scanner;
  * Created by jason on 17-12-29.
  */
 public class XorandSum {
+    private static final long MODULE = (long) (Math.pow(10, 9) + 7);
+
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
-        long a = sc.nextInt();
-        long b = sc.nextInt();
-        long l = 0L;
-
+//        long a = sc.nextInt();
+//        long b = sc.nextInt();
+        long a = 10;
+        long b = 1010;
+        long l = 0;
         for (int i = 0; i <= 314159; i++) {
-            l += a ^ (b << i);
+            l = l + a ^ (b << i);
+            l = l % MODULE;
         }
-        System.out.println(l % (Math.pow(10, 9) + 7));
+        System.out.println(String.format("%d", l % MODULE));
     }
 }
