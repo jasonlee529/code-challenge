@@ -33,6 +33,14 @@ public class XorandSum {
     private static final long MODULE = (long) (Math.pow(10, 9) + 7);
 
     public static void main(String[] args) {
+
+    }
+
+    public static void sample2() {
+
+    }
+
+    public static void sample() {
         Scanner scanner = new Scanner(System.in);
         String s1 = scanner.nextLine();
         String s2 = scanner.nextLine();
