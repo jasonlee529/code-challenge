@@ -98,7 +98,7 @@ public class BiggerisGreater {
         return new String(array);
     }
 
-    public static void swap(char chs[], int i, int j) {
+    private static void swap(char chs[], int i, int j) {
         char temp;
         temp = chs[i];
         chs[i] = chs[j];
