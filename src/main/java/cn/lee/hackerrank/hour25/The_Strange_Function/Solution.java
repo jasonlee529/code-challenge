@@ -70,8 +70,8 @@ public class Solution {
     static long maximumValue(int[] a) {
         // Return the maximum value of f among all subsegments [l..r].
         long max = Long.MIN_VALUE;
-        for (int l = 0; l < a.length; l++) {
-            for (int r = l; r < a.length; r++) {
+        for (int l = 0; l < a.length-1; l++) {
+            for (int r = l+1; r < a.length; r++) {
                 long m = getMax(a, l, r);
                 max = max > m ? max : m;
             }
@@ -92,7 +92,7 @@ public class Solution {
         long t4 = System.currentTimeMillis();
         long t = g * (sum - m);
         long t5 = System.currentTimeMillis();
-        System.out.println(String.format("%d,%d,%d,%d,%d,%d,%d,%d", t5 - t0, t5 - t4, t4 - t3, t3 - t2, t2 - t1, t1 - t0, l, r));
+        // System.out.println(String.format("%d,%d,%d,%d,%d,%d,%d,%d", t5 - t0, t5 - t4, t4 - t3, t3 - t2, t2 - t1, t1 - t0, l, r));
         return t;
     }
 
@@ -118,23 +118,23 @@ public class Solution {
         for (int i = 1; i < a.length; i++) {
             g = gcd(g, a[i]);
         }
-        return a[0];
+        return g;
     }
 
     static int gcd(int x, int y) {
         x = Math.abs(x);
         y = Math.abs(y);
-        while (y != 0) {
-            int t = y;
-            x = y;
-            y = t % y;
+        int a = Math.min(x, y);
+        int b = Math.max(x, y);
+        while (a != 0) {
+            int t = a;
+            a = b % a;
+            b = t;
         }
-        return x;
+        return b;
     }
 
     public static void main(String[] args) throws IOException {
-        int[] b = new int[]{1, 2, 1, 2};
-        b = Arrays.stream(b).distinct().toArray();
         URL r = Solution.class.getResource("12.txt");
         BufferedReader reader = new BufferedReader(new FileReader(r.getPath()));
         String len = reader.readLine();
@@ -147,7 +147,9 @@ public class Solution {
         }
         System.out.println(getMax(a, 0, 7985));
         System.out.println(maximumValue(a));
-        System.out.println(maximumValue(new int[]{753000, 121000, 616000, -266000, -379000, 65000, 530000, 242000, 809000, 599000, 113000, -407000}));
+        System.out.println(maximumValue(new int[]{10, -5, 5, 20}));
+        System.out.println(maximumValue(new int[]{7, 12, 24, 6, 5}));
+
         Scanner in = new Scanner(System.in);
 //        int n = in.nextInt();
 //        int[] a = new int[n];
