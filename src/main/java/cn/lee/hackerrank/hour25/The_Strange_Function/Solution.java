@@ -70,10 +70,18 @@ public class Solution {
     static long maximumValue(int[] a) {
         // Return the maximum value of f among all subsegments [l..r].
         long max = Long.MIN_VALUE;
-        for (int l = 0; l < a.length-1; l++) {
-            for (int r = l+1; r < a.length; r++) {
-                long m = getMax(a, l, r);
-                max = max > m ? max : m;
+        for (int l = 0; l < a.length - 1; l++) {
+            for (int r = l + 1; r < a.length; r++) {
+                int g = a[l];
+                long m =a[l];
+                long sum = 0;
+                for (int i = l; i <= r; i++) {
+                    g = gcd(g, a[i]);
+                    sum += a[i];
+                    m = Math.max(m, a[i]);
+                }
+                long t = g * (sum - m);
+                max = Math.max(t, max);
             }
         }
         return max;
@@ -145,11 +153,9 @@ public class Solution {
             a[i] = Integer.parseInt(s);
             i++;
         }
-        System.out.println(getMax(a, 0, 7985));
-        System.out.println(maximumValue(a));
         System.out.println(maximumValue(new int[]{10, -5, 5, 20}));
         System.out.println(maximumValue(new int[]{7, 12, 24, 6, 5}));
-
+        System.out.println(maximumValue(a));
         Scanner in = new Scanner(System.in);
 //        int n = in.nextInt();
 //        int[] a = new int[n];
