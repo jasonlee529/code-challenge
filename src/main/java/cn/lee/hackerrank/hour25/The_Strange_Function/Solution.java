@@ -1,9 +1,11 @@
 package cn.lee.hackerrank.hour25.The_Strange_Function;
 
+import java.io.BufferedReader;
+import java.io.FileReader;
+import java.io.IOException;
+import java.net.URL;
 import java.util.Arrays;
-import java.util.HashSet;
 import java.util.Scanner;
-import java.util.Set;
 
 /**
  * https://www.hackerrank.com/contests/hourrank-25/challenges/the-strange-function
@@ -69,15 +71,29 @@ public class Solution {
         // Return the maximum value of f among all subsegments [l..r].
         long max = Long.MIN_VALUE;
         for (int l = 0; l < a.length; l++) {
-            for (int r = 0; r < a.length; r++) {
-                int[] tmp = new int[r - l + 1];
-                System.arraycopy(a, l, tmp, 0, r - l);
-                Arrays.sort(tmp);
-                long t = gcd(tmp) * (sum(tmp) - max(tmp));
-                max = max > t ? max : t;
+            for (int r = l; r < a.length; r++) {
+                long m = getMax(a, l, r);
+                max = max > m ? max : m;
             }
         }
         return max;
+    }
+
+    private static long getMax(int[] a, int l, int r) {
+        long t0 = System.currentTimeMillis();
+        int[] tmp = new int[r - l + 1];
+        System.arraycopy(a, l, tmp, 0, r - l + 1);
+        long t1 = System.currentTimeMillis();
+        long g = gcd(tmp);
+        long t2 = System.currentTimeMillis();
+        long sum = sum(tmp);
+        long t3 = System.currentTimeMillis();
+        long m = max(tmp);
+        long t4 = System.currentTimeMillis();
+        long t = g * (sum - m);
+        long t5 = System.currentTimeMillis();
+        System.out.println(String.format("%d,%d,%d,%d,%d,%d,%d,%d", t5 - t0, t5 - t4, t4 - t3, t3 - t2, t2 - t1, t1 - t0, l, r));
+        return t;
     }
 
     static int max(int[] a) {
@@ -97,38 +113,41 @@ public class Solution {
     }
 
     static int gcd(int[] a) {
+        a = Arrays.stream(a).distinct().toArray();
         int g = a[0];
-        Set<Integer> s = new HashSet<>();
-        for (int i = 0; i < a.length - 1; i++) {
-            s.add(gcd(a[i], a[i + i]));
+        for (int i = 1; i < a.length; i++) {
+            g = gcd(g, a[i]);
         }
-        if (s.size() == 0) {
-            g = a[0];
-        } else if (s.size() == 1) {
-            g = s.iterator().next();
-        } else {
-            return gcd(s.stream().mapToInt(Integer::intValue).toArray());
-        }
-        return g;
+        return a[0];
     }
 
     static int gcd(int x, int y) {
         x = Math.abs(x);
         y = Math.abs(y);
-        if (x == 0) {
-            return y;
-        } else if (y % x == 0) {
-            return x;
-        } else {
-            int t = y % x;
-            y = x;
-            x = t;
-            return gcd(x, y);
+        while (y != 0) {
+            int t = y;
+            x = y;
+            y = t % y;
         }
+        return x;
     }
 
-    public static void main(String[] args) {
-        System.out.println(maximumValue(new int[]{670, 727, 143, -996, 772}));
+    public static void main(String[] args) throws IOException {
+        int[] b = new int[]{1, 2, 1, 2};
+        b = Arrays.stream(b).distinct().toArray();
+        URL r = Solution.class.getResource("12.txt");
+        BufferedReader reader = new BufferedReader(new FileReader(r.getPath()));
+        String len = reader.readLine();
+        int[] a = new int[Integer.parseInt(len)];
+        String data = reader.readLine();
+        int i = 0;
+        for (String s : data.split(" ")) {
+            a[i] = Integer.parseInt(s);
+            i++;
+        }
+        System.out.println(getMax(a, 0, 7985));
+        System.out.println(maximumValue(a));
+        System.out.println(maximumValue(new int[]{753000, 121000, 616000, -266000, -379000, 65000, 530000, 242000, 809000, 599000, 113000, -407000}));
         Scanner in = new Scanner(System.in);
 //        int n = in.nextInt();
 //        int[] a = new int[n];
