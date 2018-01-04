@@ -4,7 +4,6 @@ import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
 import java.net.URL;
-import java.util.Arrays;
 import java.util.Scanner;
 
 /**
@@ -89,48 +88,6 @@ public class Solution {
             }
         }
         return max;
-    }
-
-    private static long getMax(int[] a, int l, int r) {
-        long t0 = System.currentTimeMillis();
-        int[] tmp = new int[r - l + 1];
-        System.arraycopy(a, l, tmp, 0, r - l + 1);
-        long t1 = System.currentTimeMillis();
-        long g = gcd(tmp);
-        long t2 = System.currentTimeMillis();
-        long sum = sum(tmp);
-        long t3 = System.currentTimeMillis();
-        long m = max(tmp);
-        long t4 = System.currentTimeMillis();
-        long t = g * (sum - m);
-        long t5 = System.currentTimeMillis();
-        // System.out.println(String.format("%d,%d,%d,%d,%d,%d,%d,%d", t5 - t0, t5 - t4, t4 - t3, t3 - t2, t2 - t1, t1 - t0, l, r));
-        return t;
-    }
-
-    static int max(int[] a) {
-        int max = a[0];
-        for (int i : a) {
-            max = max > i ? max : i;
-        }
-        return max;
-    }
-
-    static long sum(int[] a) {
-        long result = 0;
-        for (int i : a) {
-            result += i;
-        }
-        return result;
-    }
-
-    static int gcd(int[] a) {
-        a = Arrays.stream(a).distinct().toArray();
-        int g = a[0];
-        for (int i = 1; i < a.length; i++) {
-            g = gcd(g, a[i]);
-        }
-        return g;
     }
 
     static int gcd(int x, int y) {
