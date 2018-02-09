@@ -49,10 +49,10 @@ public class Angry_Professor {
     static String angryProfessor(int k, int[] a) {
         // Complete this function
         long arr = Arrays.stream(a).filter( i -> i<=0).count();
-        for(int i:a){
-            arr = i<=0?arr+1:arr;
-        }
-        Arrays.stream(a).filter( i -> i<=0).count();
+//        for(int i:a){
+//            arr = i<=0?arr+1:arr;
+//        }
+//        Arrays.stream(a).filter( i -> i<=0).count();
         return arr>=k?"YES":"NO";
     }
 
