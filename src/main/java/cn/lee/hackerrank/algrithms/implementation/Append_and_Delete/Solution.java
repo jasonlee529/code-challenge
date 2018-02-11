@@ -71,10 +71,17 @@ public class Solution {
             }
         }
         int ops = s.length() - sub  + t.length() - sub ;
-        return k >= ops && (k-sub-(t.length()-sub-1))>=0? "Yes" : "No";
+        if(k>=s.length()+t.length()){
+            return "Yes";
+        }else if(k>=ops && (k - ops)%2==0){
+            return "Yes";
+        }
+        return "No";
     }
 
     public static void main(String[] args) {
+
+        System.out.println(appendAndDelete("hackerhappy", "hackerrank", 9));
         System.out.println(appendAndDelete("aba", "aba", 7));
         Scanner in = new Scanner(System.in);
         String s = in.next();
