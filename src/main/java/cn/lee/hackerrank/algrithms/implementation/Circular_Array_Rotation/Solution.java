@@ -47,8 +47,10 @@ import java.util.Scanner;
 public class Solution {
     static int[] circularArrayRotation(int[] a,int k, int[] m) {
         int result []=new int[m.length];
+        int mod=k%a.length;
         for(int i=0;i<m.length;i++){
-            result[i]=a[Math.abs(m[i]- k+a.length)%a.length];
+            int p = m[i]-mod<0?m[i]-mod+a.length:m[i]-mod;
+            result[i]=a[p];
         }
         return result;
     }
