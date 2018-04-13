@@ -29,15 +29,23 @@ package cn.lee.hackerrank.Data_Structrue.LinkedLists.DeleteaNode;
 public class Solution {
     Node Delete(Node head, int position) {
         // Complete this method
-        for(int i=0;i<position;i++){
+        if (position == 0) {
             head = head.next;
-            System.out.print(head.data);
+        } else {
+            Node pre = head;
+            for (int i = 0; i < position-1; i++) {
+                pre = pre.next;
+            }
+            Node cur = pre.next;
+            if (cur != null) {
+                pre.next = cur.next;
+            }
         }
-        System.out.print(head.data);
-        head.next = null;
         return head;
+
     }
 }
+
 class Node {
     int data;
     Node next;
