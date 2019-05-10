@@ -33,7 +33,7 @@ public class Question147 {
 
     public static void main(String[] args) {
         Question147 q147 = new Question147();
-        q147.getNarcissisticNumbers(1);
+        q147.getNarcissisticNumbers(3);
     }
 
     public List<Integer> getNarcissisticNumbers(int n) {
@@ -52,9 +52,11 @@ public class Question147 {
                 result.add(new Long(i).intValue());
             }
         }
+        System.out.print("[");
         for (Integer t : result) {
-            System.out.println(t);
+            System.out.print(","+t);
         }
+        System.out.print("]");
         return result;
     }
 }
