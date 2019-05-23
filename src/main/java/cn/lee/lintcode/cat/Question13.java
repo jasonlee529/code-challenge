@@ -5,13 +5,16 @@ package cn.lee.lintcode.cat;
  */
 public class Question13 {
     public int strStr(String source, String target) {
-        if(source.equals(target)){
+        if(source.equals(target) || "".equals(target)){
             return 0;
         }
         char[] srcs = source.toCharArray();
         char[] dest = target.toCharArray();
         for (int i = 0; i < source.length(); i++) {
             if (srcs[i] == dest[0]) {
+                if(i+dest.length>srcs.length){
+                    return -1;
+                }
                 boolean pk = true;
                 for (int j = 1; j < dest.length; j++) {
                     if (srcs[i + j] == dest[j]) {
@@ -33,5 +36,7 @@ public class Question13 {
         Question13 question = new Question13();
         System.out.println(question.strStr("source", "target"));
         System.out.println(question.strStr("", ""));
+        System.out.println(question.strStr("a", ""));
+        System.out.println(question.strStr("", "a"));
     }
 }
