@@ -1,7 +1,5 @@
 package cn.lee.hackerrank.tutorials.satistics10day.Day05.Poisson_Distribution_II;
 
-import static javafx.scene.input.KeyCode.Y;
-
 /**
  * https://www.hackerrank.com/challenges/s10-poisson-distribution-1/problem
  * <pre>
@@ -31,8 +29,8 @@ public class Solution {
         double B = 1.55;
         double X = A + A * A;
         double Y = B + B * B;
-        System.out.println(String.format("%1.3f",160+40*X));
-        System.out.println(String.format("%1.3f",128+40*Y));
+        System.out.println(String.format("%1.3f", 160 + 40 * X));
+        System.out.println(String.format("%1.3f", 128 + 40 * Y));
     }
 
 }
