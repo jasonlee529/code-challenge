@@ -1,7 +1,6 @@
 package cn.lee.lintcode.cat;
 
-import java.util.HashMap;
-import java.util.Map;
+import java.util.Arrays;
 
 /**
  * https://www.lintcode.com/problem/remove-duplicate-numbers-in-array/description?_from=cat
@@ -10,24 +9,27 @@ public class Question521 {
 
     public int deduplication(int[] nums) {
         // Write your code here
-        Map<Integer, Integer> map = new HashMap<>();
-        for (int i = 0; i < nums.length; i++) {
-            int n = nums[i];
-            if (map.get(n) == null) {
-                map.put(n, 1);
-            } else {
-                int count = map.get(n);
-                if (count > 0) {
-                    move(nums, i);
-                }
-                map.put(n, map.get(n) + 1);
+        if (nums == null || nums.length == 0) {
+            return 0;
+        }
+
+        Arrays.sort(nums);
+
+        int index = 0;
+        for (int i = 1; i < nums.length; i++) {
+            if (nums[i] != nums[index]) {
+                nums[++index] = nums[i];
             }
         }
+        print(nums);
+        return index + 1;
+    }
+
+    private void print(int[] nums) {
         for (int n : nums) {
-            System.out.print("  "+n);
+            System.out.print("  " + n);
         }
         System.out.println("");
-        return 0;
     }
 
     private void move(int[] nums, int i) {
