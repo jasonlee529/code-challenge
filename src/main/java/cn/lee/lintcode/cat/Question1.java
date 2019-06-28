@@ -15,8 +15,8 @@ public class Question1 {
     }
 
     public static void main(String[] args) {
-        Question1 question8 = new Question1();
-        System.out.println(question8.aplusb(1, 2));
-        System.out.println(question8.aplusb(1, -2));
+        Question1 question = new Question1();
+        System.out.println(question.aplusb(1, 2));
+        System.out.println(question.aplusb(1, -2));
     }
 }
