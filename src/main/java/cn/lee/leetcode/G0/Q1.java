@@ -1,4 +1,4 @@
-package cn.lee.leetcode;import lombok.extern.slf4j.Slf4j;
+package cn.lee.leetcode.G0;import lombok.extern.slf4j.Slf4j;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 /**  

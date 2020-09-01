@@ -1,4 +1,4 @@
-package cn.lee.leetcode;
+package cn.lee.leetcode.G0;
 
 import ch.qos.logback.core.util.StringCollectionUtil;
 import lombok.extern.slf4j.Slf4j;

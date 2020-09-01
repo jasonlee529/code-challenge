@@ -1,7 +1,6 @@
-package cn.lee.leetcode;
+package cn.lee.leetcode.G0;
 
 import lombok.extern.slf4j.Slf4j;
-import lombok.val;
 
 import java.math.BigInteger;
 import java.util.ArrayList;
