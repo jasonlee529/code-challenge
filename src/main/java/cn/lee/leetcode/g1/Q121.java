@@ -1,7 +1,6 @@
-package cn.lee.leetcode.G1;import lombok.extern.slf4j.Slf4j;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
-/**  
+package cn.lee.leetcode.g1;import lombok.extern.slf4j.Slf4j;
+
+/**
     * @Title: Q121
     * @Description: https://leetcode-cn.com/problems/best-time-to-buy-and-sell-stock/
     * @author libo

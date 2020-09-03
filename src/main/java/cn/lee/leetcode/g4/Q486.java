@@ -1,7 +1,6 @@
-package cn.lee.leetcode.G4;import lombok.extern.slf4j.Slf4j;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
-/**  
+package cn.lee.leetcode.g4;import lombok.extern.slf4j.Slf4j;
+
+/**
     * @Title: Q486
     * @Description: https://leetcode-cn.com/problems/predict-the-winner/
     * @author libo

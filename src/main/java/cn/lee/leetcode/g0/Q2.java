@@ -1,4 +1,4 @@
-package cn.lee.leetcode.G0;
+package cn.lee.leetcode.g0;
 
 import lombok.extern.slf4j.Slf4j;
 
