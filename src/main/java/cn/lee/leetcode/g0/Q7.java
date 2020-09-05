@@ -29,6 +29,10 @@ public class Q7 {
                 sb.append(s.charAt(i));
             }
         }
+        int res = 0;
+        if(sb.toString().compareTo(String.valueOf(Integer.MAX_VALUE))>0 ||sb.toString().compareTo(String.valueOf(Integer.MIN_VALUE))<0){
+            return 0;
+        }
         return Integer.valueOf(sb.toString());
     }
 }
