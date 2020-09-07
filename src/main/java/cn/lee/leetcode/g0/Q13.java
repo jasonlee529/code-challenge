@@ -12,5 +12,19 @@ import org.slf4j.LoggerFactory;
     */
 @Slf4j
 public class Q13 {
+    public static void main(String[] args) {
+        Q13 q = new Q13();
+        System.out.println(q.romanToInt("I"));
+    }
+    public int romanToInt(String s) {
+        int index=0;
+        while(index<s.length()){
+            while(s.charAt(index)=='I'){
+                index++;
+            }
+        }
+
+        return 0;
+    }
 
 }
