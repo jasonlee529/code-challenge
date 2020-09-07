@@ -54,13 +54,14 @@ public class Q2 {
         big=new BigInteger( sb.reverse().toString());
         return big;
     }
-}
+    class ListNode {
+        int val;
+        ListNode next;
 
-class ListNode {
-    int val;
-    ListNode next;
-
-    ListNode(int x) {
-        val = x;
+        ListNode(int x) {
+            val = x;
+        }
     }
 }
+
+
