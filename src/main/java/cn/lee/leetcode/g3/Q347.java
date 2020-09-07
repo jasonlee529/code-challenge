@@ -14,10 +14,40 @@ import java.util.*;
 @Slf4j
 public class Q347 {
     public static void main(String[] args) {
-        System.out.println(new Q347().topKFrequent(new int[]{1,1,1,2,2,3},2));
+        System.out.println(Arrays.toString(new Q347().topKFrequent( new int[]{1,1,1,2,2,3},2)));
+        System.out.println(Arrays.toString(new Q347().topKFrequent1( new int[]{1,1,1,2,2,3},2)));
     }
 
     public int[] topKFrequent(int[] nums, int k) {
+        Map<Integer, Integer> occurrences = new HashMap<Integer, Integer>();
+        for (int num : nums) {
+            occurrences.put(num, occurrences.getOrDefault(num, 0) + 1);
+        }
+
+        // int[] 的第一个元素代表数组的值，第二个元素代表了该值出现的次数
+        PriorityQueue<int[]> queue = new PriorityQueue<int[]>(new Comparator<int[]>() {
+            public int compare(int[] m, int[] n) {
+                return m[1] - n[1];
+            }
+        });
+        for (Map.Entry<Integer, Integer> entry : occurrences.entrySet()) {
+            int num = entry.getKey(), count = entry.getValue();
+            if (queue.size() == k) {
+                if (queue.peek()[1] < count) {
+                    queue.poll();
+                    queue.offer(new int[]{num, count});
+                }
+            } else {
+                queue.offer(new int[]{num, count});
+            }
+        }
+        int[] ret = new int[k];
+        for (int i = 0; i < k; ++i) {
+            ret[i] = queue.poll()[0];
+        }
+        return ret;
+    }
+    public int[] topKFrequent1(int[] nums, int k) {
         Map<Integer, Integer> map = new HashMap<>();
         for (int i = 0; i < nums.length; i++) {
             if(map.get(nums[i])==null){
@@ -38,37 +68,5 @@ public class Q347 {
             r[i]=set.get(i).getKey();
         }
         return r;
-    }
-
-    public int[] topKFrequent2(int[] nums, int k) {
-        int[] arr = new int[Integer.MAX_VALUE];
-        for (int i : nums) {
-            arr[nums[i]] += 1;
-        }
-        Map<Integer, List<Integer>> res = new HashMap<>();
-        for (int i = 1; i < arr.length; i++) {
-            Integer m = arr[i];
-            if (m == 0) {
-                continue;
-            }
-            if (res.get(Integer.valueOf(m)) == null) {
-                List<Integer> list = new ArrayList<>();
-                list.add(i);
-            }
-            res.get(m).add(i);
-        }
-        Arrays.sort(arr);
-        List<Integer> r = new ArrayList<>();
-        for (int i : arr) {
-            r.addAll(res.get(Integer.valueOf(i)));
-            if (r.size() >= k) {
-                break;
-            }
-        }
-        int[] t = new int[r.size()];
-        for (int i = 0; i < r.size(); i++) {
-            t[i] = r.get(i);
-        }
-        return t;
     }
 }
