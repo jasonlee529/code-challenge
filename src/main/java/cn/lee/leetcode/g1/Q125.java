@@ -42,14 +42,14 @@ public class Q125 {
             }
             left++;
             right--;
-            pali = pali && (isCharacter(c1) && isCharacter(c2) ? (c1==c2||Math.abs((int) c1 - (int) c2) == 32) : c1 == c2 );
+            pali = pali && (isCharacter(c1) && isCharacter(c2) ? (c1 == c2 || Math.abs((int) c1 - (int) c2) == 32) : c1 == c2);
         }
         return pali;
     }
 
     private boolean isCharacter(char c) {
         return (c >= 'a' && c <= 'z')
-               || (c >= 'A' && c <= 'Z');
+                || (c >= 'A' && c <= 'Z');
     }
 
     private boolean isLegal(char c) {
