@@ -22,6 +22,9 @@ public class Q387 {
     }
 
     public int firstUniqChar(String s) {
+        if (s.length() == 0) {
+            return -1;
+        }
         LinkedHashMap<Character, Integer> pos = new LinkedHashMap<>();
         for (int i = 0; i < s.length(); i++) {
             if (pos.containsKey(s.charAt(i))) {
@@ -30,14 +33,14 @@ public class Q387 {
                 pos.put(s.charAt(i), 1);
             }
         }
-        char c = s.charAt(0);
+        Character c = null;
         for (Map.Entry<Character, Integer> kv : pos.entrySet()) {
             if (kv.getValue() == 1) {
                 c = kv.getKey();
                 break;
             }
         }
-        return s.indexOf(c);
+        return c == null ? -1 : s.indexOf(c);
     }
 
     public int firstUniqChar2(String s) {
