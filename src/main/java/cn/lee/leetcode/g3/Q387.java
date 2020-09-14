@@ -25,15 +25,15 @@ public class Q387 {
         LinkedHashMap<Character, Integer> pos = new LinkedHashMap<>();
         for (int i = 0; i < s.length(); i++) {
             if (pos.containsKey(s.charAt(i))) {
-                pos.put(s.charAt(i), pos.get(s.charAt(i) + 1));
+                pos.put(s.charAt(i), pos.get(s.charAt(i)) + 1);
             } else {
-                pos.putIfAbsent(s.charAt(i), 1);
+                pos.put(s.charAt(i), 1);
             }
         }
         char c = s.charAt(0);
         for (Map.Entry<Character, Integer> kv : pos.entrySet()) {
-            if(kv.getValue()==1){
-                c=kv.getKey();
+            if (kv.getValue() == 1) {
+                c = kv.getKey();
                 break;
             }
         }
