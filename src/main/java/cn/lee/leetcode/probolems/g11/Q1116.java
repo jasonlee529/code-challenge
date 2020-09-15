@@ -1,4 +1,4 @@
-package cn.lee.leetcode.probolems;
+package cn.lee.leetcode.probolems.g11;
 
 import lombok.SneakyThrows;
 import lombok.extern.slf4j.Slf4j;
