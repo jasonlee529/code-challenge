@@ -1,5 +1,6 @@
 package cn.lee.leetcode.probolems.g2;
 
+import cn.lee.leetcode.util.TreeNode;
 import lombok.extern.slf4j.Slf4j;
 
 import java.util.ArrayList;
@@ -32,23 +33,13 @@ public class Q257 {
 
     private void dfs(TreeNode root, String sb, List<String> strings) {
         if (root.left != null) {
-            dfs(root.left, sb +"->"+ root.left.val, strings);
+            dfs(root.left, sb + "->" + root.left.val, strings);
         }
         if (root.right != null) {
-            dfs(root.right, sb +"->"+ root.right.val, strings);
+            dfs(root.right, sb + "->" + root.right.val, strings);
         }
         if (root.left == null && root.right == null) {
             strings.add(sb.toString());
         }
-    }
-}
-
-class TreeNode {
-    int val;
-    TreeNode left;
-    TreeNode right;
-
-    TreeNode(int x) {
-        val = x;
     }
 }
