@@ -1,5 +1,6 @@
 package cn.lee.leetcode.probolems.g1;
 
+import cn.lee.leetcode.util.TreeNode;
 import lombok.extern.slf4j.Slf4j;
 
 /**
@@ -28,15 +29,5 @@ public class Q108 {
         node.left=helper(nums,left,mid-1);
         node.right=helper(nums,mid+1,right);
         return node;
-    }
-
-    public class TreeNode {
-        int val;
-        TreeNode left;
-        TreeNode right;
-
-        TreeNode(int x) {
-            val = x;
-        }
     }
 }

@@ -1,5 +1,6 @@
 package cn.lee.leetcode.probolems.g1;
 
+import cn.lee.leetcode.util.TreeNode;
 import lombok.extern.slf4j.Slf4j;
 
 import java.util.Deque;
@@ -49,22 +50,5 @@ public class Q101 {
         return eq;
     }
 
-    static class TreeNode {
-        int val;
-        TreeNode left;
-        TreeNode right;
 
-        TreeNode() {
-        }
-
-        TreeNode(int val) {
-            this.val = val;
-        }
-
-        TreeNode(int val, TreeNode left, TreeNode right) {
-            this.val = val;
-            this.left = left;
-            this.right = right;
-        }
-    }
 }
