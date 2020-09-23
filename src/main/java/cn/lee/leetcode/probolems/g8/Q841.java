@@ -1,4 +1,4 @@
-package cn.lee.leetcode.probolems.g08;
+package cn.lee.leetcode.probolems.g8;
 
 import lombok.extern.slf4j.Slf4j;
 
