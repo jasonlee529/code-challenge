@@ -1,4 +1,4 @@
-package cn.lee.leetcode.probolems.g05;
+package cn.lee.leetcode.probolems.g5;
 
 /**
  * https://leetcode-cn.com/problems/reverse-words-in-a-string-iii/
