@@ -11,6 +11,9 @@ import lombok.extern.slf4j.Slf4j;
  */
 @Slf4j
 public class Q171 {
+    public static void main(String[] args) {
+        System.out.println(new Q171().titleToNumber("DU"));
+    }
     public int titleToNumber(String s) {
         int sum = 0;
         int len = s.length();
