@@ -13,11 +13,12 @@ import lombok.extern.slf4j.Slf4j;
 public class ListNodeFactory {
     public static ListNode build(int[] arr) {
         ListNode head = null;
-        ListNode cur = head;
+        ListNode cur = null;
         for (int n : arr) {
             ListNode node = new ListNode(n);
             if (head == null) {
                 cur = node;
+                head = cur;
             } else {
                 cur.next = node;
                 cur = node;
