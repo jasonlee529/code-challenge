@@ -18,14 +18,14 @@ public class Q326 {
         System.out.println(new Q326().isPowerOfThree(3));
         System.out.println(new Q326().isPowerOfThree(4));
         System.out.println(new Q326().isPowerOfThree(8888));
-        System.out.println(new Q326().isPowerOfThree(4000000));
+        System.out.println(new Q326().isPowerOfThree(2147483647));
     }
     public boolean isPowerOfThree(int n) {
         if (n == 0) {
             return false;
         }
         int i = 1;
-        while (i < n) {
+        while (i>0&& i < n) {
             i = i * 3;
         }
         return i == n;
