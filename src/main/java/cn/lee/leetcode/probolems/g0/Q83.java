@@ -1,5 +1,6 @@
 package cn.lee.leetcode.probolems.g0;
 
+import cn.lee.leetcode.util.ListNode;
 import lombok.extern.slf4j.Slf4j;
 
 /**
@@ -24,14 +25,5 @@ public class Q83 {
             }
         }
         return head;
-    }
-
-    public class ListNode {
-        int val;
-        ListNode next;
-
-        ListNode(int x) {
-            val = x;
-        }
     }
 }

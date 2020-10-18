@@ -14,25 +14,27 @@ import lombok.extern.slf4j.Slf4j;
 @Slf4j
 public class Q19 {
     public static void main(String[] args) {
-        System.out.println(new Q19().removeNthFromEnd(ListNodeFactory.build(new int[]{1,2,3,4,5}),2));
+        System.out.println(new Q19().removeNthFromEnd(ListNodeFactory.build(new int[]{1, 2, 3, 4, 5}), 2));
+        System.out.println(new Q19().removeNthFromEnd(ListNodeFactory.build(new int[]{1,2}), 1));
     }
+
     public ListNode removeNthFromEnd(ListNode head, int n) {
-        int i = 0;
-        if (head == null) {
-            return null;
-        }
         ListNode fast = head;
         ListNode slow = head;
-        while (fast != null) {
-            if (i < n+1) {
-                fast = fast.next;
-                i++;
-            } else {
-                fast = fast.next;
+//慢指针比快指针慢N步,那么快指针指向末尾的null时,慢指针刚好指向要删除结点的前驱结点
+        while (fast.next != null) {
+            fast = fast.next;
+            if (n == 0) {
                 slow = slow.next;
+            } else {
+                n--;
             }
         }
-        slow.next = slow.next.next;
+        if (n != 0) { //没追上,说明删除的是头指针
+            return head.next;
+        } else {
+            slow.next = slow.next.next;
+        }
         return head;
 
     }
