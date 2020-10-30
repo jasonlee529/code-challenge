@@ -16,10 +16,15 @@ public class Q42 {
     @Test
     public void test() {
         Assert.assertEquals(new Q42().maxSubArray(new int[]{-2, 1, -3, 4, -1, 2, 1, -5, 4}), 6);
+        Assert.assertEquals(new Q42().maxSubArray(new int[]{-1}), -1);
+        Assert.assertEquals(new Q42().maxSubArray(new int[]{}), 0);
     }
 
     public int maxSubArray(int[] nums) {
-        int max = 0;
+        if (nums.length == 0) {
+            return 0;
+        }
+        int max = nums[0];
         int sum = 0;
         for (int n : nums) {
             if (sum >= 0) {
