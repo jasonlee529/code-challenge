@@ -1,4 +1,4 @@
-package cn.lee.leetcode.g08;
+package cn.lee.leetcode.interview.g08;
 
 import lombok.extern.slf4j.Slf4j;
 import org.junit.Assert;
