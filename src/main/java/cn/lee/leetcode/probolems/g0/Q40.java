@@ -47,4 +47,5 @@ public class Q40 {
         }
         return sum;
     }
+   
 }
