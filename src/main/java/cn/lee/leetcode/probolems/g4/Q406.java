@@ -4,10 +4,7 @@ import lombok.extern.slf4j.Slf4j;
 import org.junit.Assert;
 import org.junit.Test;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Comparator;
-import java.util.List;
+import java.util.*;
 
 /**
  * @Title: Q406
@@ -36,7 +33,7 @@ public class Q406 {
             }
         });
         int[][] dest = new int[people.length][2];
-        List<int[]> lists = new ArrayList<>();
+        List<int[]> lists = new LinkedList<>();
         for (int i = 0; i < people.length; i++) {
             int[] tmp = people[i];
             if (tmp[1] == 0) {
