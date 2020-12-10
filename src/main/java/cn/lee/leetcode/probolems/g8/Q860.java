@@ -19,7 +19,7 @@ public class Q860 {
         Assert.assertEquals(true, lemonadeChange(new int[]{5, 5, 10}));
         Assert.assertEquals(true, lemonadeChange(new int[]{5, 5, 5, 10, 20}));
         Assert.assertEquals(false, lemonadeChange(new int[]{5, 5, 10, 10, 20}));
-
+        Assert.assertEquals(false, lemonadeChange(new int[]{5,5,5,10,5,5,10,20,20,20}));
     }
 
     public boolean lemonadeChange(int[] bills) {
@@ -32,7 +32,6 @@ public class Q860 {
                 five++;
             }
             if (n == 10) {
-                ten++;
                 if (five >= 1) {
                     five--;
                     ten++;
@@ -42,12 +41,13 @@ public class Q860 {
                 }
             }
             if (n == 20) {
-                twenty++;
                 if (ten == 0 && five >= 3) {
                     five -= 3;
+                    twenty++;
                 } else if (ten >= 1 && five >= 1) {
                     ten--;
                     five--;
+                    twenty++;
                 } else {
                     suc = false;
                     break;
