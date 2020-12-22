@@ -1,6 +1,8 @@
 package cn.lee.leetcode.probolems.g0;
 
 import lombok.extern.slf4j.Slf4j;
+import org.junit.Assert;
+import org.junit.Test;
 
 /**
  * @Title: Q63
@@ -11,6 +13,17 @@ import lombok.extern.slf4j.Slf4j;
  */
 @Slf4j
 public class Q63 {
+
+    @Test
+    public void test1() {
+        Assert.assertEquals(2, new int[][]{{0, 0, 0}, {0, 1, 0}, {0, 0, 0}});
+    }
+
+    @Test
+    public void test2() {
+        Assert.assertEquals(1, new int[][]{{0, 1}, {0, 0,}});
+    }
+
     public int uniquePathsWithObstacles(int[][] obstacleGrid) {
 
 
