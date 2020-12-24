@@ -33,9 +33,25 @@ public class Q63 {
     public void test4() {
         Assert.assertEquals(0, uniquePathsWithObstacles(new int[][]{{1}}));
     }
+
     @Test
     public void test5() {
-        Assert.assertEquals(0, uniquePathsWithObstacles(new int[][]{{1},{0}}));
+        Assert.assertEquals(0, uniquePathsWithObstacles(new int[][]{{1}, {0}}));
+    }
+    @Test
+    public void test6() {
+        String a="a",b="b",c="c";
+        a=b=c;
+        Assert.assertEquals("c", a);
+        Assert.assertEquals("c", b);
+        Assert.assertEquals("c", c);
+        a=b=c=null;
+        Assert.assertEquals(null, a);
+        Assert.assertEquals(null, b);
+        Assert.assertEquals(null, c);
+        a=b=null;
+        Assert.assertEquals(null, a);
+        Assert.assertEquals(null, b);
     }
     public int uniquePathsWithObstacles(int[][] obstacleGrid) {
         int m = obstacleGrid.length;
