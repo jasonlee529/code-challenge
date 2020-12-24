@@ -4,6 +4,8 @@ import lombok.extern.slf4j.Slf4j;
 import org.junit.Assert;
 import org.junit.Test;
 
+import java.util.Arrays;
+
 /**
  * @Title: Q135
  * @Description: https://leetcode-cn.com/problems/candy/
@@ -34,8 +36,24 @@ public class Q135 {
         Assert.assertEquals(3, candy(new int[]{2, 1}));
     }
 
-    //爆破法
     public int candy(int[] ratings) {
+        int[] left = new int[ratings.length];
+        int[] right = new int[ratings.length];
+        Arrays.fill(left, 1);
+        Arrays.fill(right, 1);
+        for (int i = 1; i < ratings.length; i++) {
+            if (ratings[i] > ratings[i - 1]) left[i] = left[i - 1] + 1;
+        }
+        int count = left[ratings.length - 1];
+        for (int i = ratings.length - 2; i >= 0; i--) {
+            if (ratings[i] > ratings[i + 1]) right[i] = right[i + 1] + 1;
+            count += Math.max(left[i], right[i]);
+        }
+        return count;
+    }
+
+    //爆破法
+    public int candy3(int[] ratings) {
         int len = ratings.length;
         int[] pos = new int[len];
         boolean ans = true;
