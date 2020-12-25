@@ -39,7 +39,11 @@ public class Q10 {
     }
 
     public boolean isMatch(String s, String p) {
+        int left = 0, right = 0;
+        boolean match = true;
+        while (match && left < s.length() && right < p.length()) {
 
+        }
         return true;
     }
 }
