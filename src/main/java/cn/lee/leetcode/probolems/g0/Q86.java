@@ -22,6 +22,9 @@ public class Q86 {
     }
 
     public ListNode partition(ListNode head, int x) {
+        if (head == null) {
+            return null;
+        }
         ListNode cur = head;
         ListNode xPre = null;
         ListNode xNode = null;
@@ -36,18 +39,18 @@ public class Q86 {
                 }
                 cur = cur.next;
             } else if (cur.next.val < x) {
-                if(xNode==null){
+                if (xNode == null) {
                     cur = cur.next;
-                }else{
+                } else {
                     ListNode node = cur.next;
-                    cur.next=cur.next.next;
-                    if(xPre==null){
-                        node.next=xNode;
-                        xPre=node;
-                    }else{
-                        xPre.next=node;
-                        node.next=xNode;
-                        xPre=node;
+                    cur.next = cur.next.next;
+                    if (xPre == null) {
+                        node.next = xNode;
+                        xPre = node;
+                    } else {
+                        xPre.next = node;
+                        node.next = xNode;
+                        xPre = node;
                     }
                 }
             }

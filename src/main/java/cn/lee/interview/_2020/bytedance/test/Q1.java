@@ -1,4 +1,4 @@
-package cn.lee.newcoder.bytedance.test;
+package cn.lee.interview._2020.bytedance.test;
 
 import lombok.extern.slf4j.Slf4j;
 
