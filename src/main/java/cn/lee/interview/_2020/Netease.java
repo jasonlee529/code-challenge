@@ -1,4 +1,4 @@
-package cn.lee;
+package cn.lee.interview._2020;
 
 import lombok.extern.slf4j.Slf4j;
 import org.junit.Assert;
@@ -14,7 +14,7 @@ import java.util.*;
  * @Version: 1.0
  */
 @Slf4j
-public class Main {
+public class Netease {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
         int line = sc.nextInt();
@@ -111,7 +111,7 @@ public class Main {
         for(int i=0;i<lines.length;i++){
             blocks[i]=Integer.parseInt(lines[i]);
         }
-        int ans = new Main().block(blocks);
+        int ans = new Netease().block(blocks);
         System.out.println(ans);
     }
     public int block(int[] blocks) {

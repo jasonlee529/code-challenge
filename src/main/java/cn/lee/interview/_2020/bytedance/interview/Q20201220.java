@@ -1,8 +1,6 @@
-package cn.lee.newcoder.bytedance.interview;
+package cn.lee.interview._2020.bytedance.interview;
 
 import lombok.extern.slf4j.Slf4j;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 
 /**
  * @Title: Q20201220
