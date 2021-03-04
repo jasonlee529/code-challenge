@@ -76,7 +76,12 @@ public class Q8 {
 				start = false;
 			}
 		}
-		int i = Integer.parseInt(num);
+		int i = 0;
+		try {
+			i = Integer.parseInt(num);
+		} catch (Exception e) {
+			i = 2147483647;
+		}
 		return bit ? i : -i;
 	}
 }
