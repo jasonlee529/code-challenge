@@ -1,4 +1,4 @@
-package cn.lee.leetcode.probolems.g0;
+package cn.lee.leetcode.probolems.g1;
 
 import lombok.extern.slf4j.Slf4j;
 import org.junit.Assert;
