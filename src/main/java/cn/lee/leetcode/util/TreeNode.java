@@ -29,6 +29,8 @@ public class TreeNode {
     public String toString() {
         return "TreeNode{" +
                 "val=" + val +
+                (left != null ? ", left=" + left.toString() : ", left= null" )+
+                (right != null ? ", next=" + right.toString() : ", next= null" )+
                 '}';
     }
 }
