@@ -16,7 +16,7 @@ import java.util.concurrent.atomic.AtomicInteger;
 @Slf4j
 public class Q1114 {
     public static void main(String[] args) throws InterruptedException {
-        Foo foo = new Foo2();
+        Foo foo = new Foo();
         Thread t1 = new Thread(new Runnable() {
             @SneakyThrows
             @Override
