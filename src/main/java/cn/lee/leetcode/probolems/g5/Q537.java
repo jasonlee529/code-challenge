@@ -63,7 +63,7 @@ public class Q537 {
 		} else if (!i1 && !i2) {
 			s = String.valueOf(res);
 		} else {
-			s = String.valueOf(res) + "i";
+			s = res + "i";
 		}
 		return s;
 	}
