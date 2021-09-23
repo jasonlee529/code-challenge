@@ -19,12 +19,12 @@ public class Q82 {
 
 	@Test
 	public void test1() {
-		Assert.assertEquals(ListNodeFactory.build(new int[]{1, 2, 5}).toString(), deleteDuplicates(ListNodeFactory.build(new int[]{1, 2, 3, 3, 4, 4, 5})).toString());
+		Assert.assertEquals(ListNodeFactory.build(new Integer[]{1, 2, 5}).toString(), deleteDuplicates(ListNodeFactory.build(new int[]{1, 2, 3, 3, 4, 4, 5})).toString());
 	}
 
 	@Test
 	public void test2() {
-		Assert.assertEquals(ListNodeFactory.build(new int[]{2, 3}).toString(), deleteDuplicates(ListNodeFactory.build(new int[]{1, 1, 1, 2, 3})).toString());
+		Assert.assertEquals(ListNodeFactory.build(new Integer[]{2, 3}).toString(), deleteDuplicates(ListNodeFactory.build(new int[]{1, 1, 1, 2, 3})).toString());
 	}
 
 	public ListNode deleteDuplicates(ListNode head) {

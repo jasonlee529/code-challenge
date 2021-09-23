@@ -14,7 +14,7 @@ import lombok.extern.slf4j.Slf4j;
 @Slf4j
 public class Q24 {
     public static void main(String[] args) {
-        System.out.println(new Q24().swapPairs(ListNodeFactory.build(new int[]{1, 2, 3, 4, 5})).toString());
+        System.out.println(new Q24().swapPairs(ListNodeFactory.build(new Integer[]{1, 2, 3, 4, 5})).toString());
     }
 
     public ListNode swapPairs(ListNode head) {

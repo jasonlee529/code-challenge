@@ -20,7 +20,7 @@ public class Q22 {
 
 	@Test
 	public void test1() {
-		Assert.assertEquals(ListNodeFactory.build(new int[]{4, 5}).toString(), getKthFromEnd(ListNodeFactory.build(new int[]{1, 2, 3, 4, 5}), 2).toString());
+		Assert.assertEquals(ListNodeFactory.build(new Integer[]{4, 5}).toString(), getKthFromEnd(ListNodeFactory.build(new int[]{1, 2, 3, 4, 5}), 2).toString());
 	}
 
 	public ListNode getKthFromEnd(ListNode head, int k) {

@@ -17,7 +17,7 @@ import java.util.LinkedList;
 @Slf4j
 public class Q143 {
     public static void main(String[] args) {
-        ListNode cur = ListNodeFactory.build(new int[]{1, 2, 3, 4});
+        ListNode cur = ListNodeFactory.build(new Integer[]{1, 2, 3, 4});
         new Q143().reorderList(cur);
         System.out.println(cur);
     }

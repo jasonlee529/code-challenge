@@ -26,4 +26,19 @@ public class ListNodeFactory {
         }
         return head;
     }
+    public static ListNode build(Integer[] arr) {
+        ListNode head = null;
+        ListNode cur = null;
+        for (int n : arr) {
+            ListNode node = new ListNode(n);
+            if (head == null) {
+                cur = node;
+                head = cur;
+            } else {
+                cur.next = node;
+                cur = node;
+            }
+        }
+        return head;
+    }
 }

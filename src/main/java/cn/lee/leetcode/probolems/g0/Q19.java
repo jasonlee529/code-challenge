@@ -14,8 +14,8 @@ import lombok.extern.slf4j.Slf4j;
 @Slf4j
 public class Q19 {
     public static void main(String[] args) {
-        System.out.println(new Q19().removeNthFromEnd(ListNodeFactory.build(new int[]{1, 2, 3, 4, 5}), 2));
-        System.out.println(new Q19().removeNthFromEnd(ListNodeFactory.build(new int[]{1,2}), 1));
+        System.out.println(new Q19().removeNthFromEnd(ListNodeFactory.build(new Integer[]{1, 2, 3, 4, 5}), 2));
+        System.out.println(new Q19().removeNthFromEnd(ListNodeFactory.build(new Integer[]{1,2}), 1));
     }
 
     public ListNode removeNthFromEnd(ListNode head, int n) {

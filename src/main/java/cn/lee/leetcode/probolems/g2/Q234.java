@@ -15,8 +15,8 @@ import lombok.extern.slf4j.Slf4j;
 public class Q234 {
     public static void main(String[] args) {
         System.out.println(1^2^2^1);
-        System.out.println(new Q234().isPalindrome(ListNodeFactory.build(new int[]{1,2,2,1})));
-        System.out.println(new Q234().isPalindrome(ListNodeFactory.build(new int[]{1,2,2})));
+        System.out.println(new Q234().isPalindrome(ListNodeFactory.build(new Integer[]{1,2,2,1})));
+        System.out.println(new Q234().isPalindrome(ListNodeFactory.build(new Integer[]{1,2,2})));
     }
     //快慢指针
     public boolean isPalindrome(ListNode head) {

@@ -17,8 +17,8 @@ import org.junit.Test;
 public class Q147 {
     @Test
     public void test() {
-        Assert.assertEquals(ListNodeFactory.build(new int[]{1, 2, 3, 4}).toString(),
-                insertionSortList(ListNodeFactory.build(new int[]{4, 2, 1, 3})).toString());
+        Assert.assertEquals(ListNodeFactory.build(new Integer[]{1, 2, 3, 4}).toString(),
+                insertionSortList(ListNodeFactory.build(new Integer[]{4, 2, 1, 3})).toString());
     }
 
     public ListNode insertionSortList(ListNode head) {
