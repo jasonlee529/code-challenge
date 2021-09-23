@@ -1,6 +1,8 @@
 package cn.lee.leetcode.probolems.g3;
 
 import lombok.extern.slf4j.Slf4j;
+import org.junit.Assert;
+import org.junit.Test;
 
 /**
  * @Title: Q326
@@ -11,23 +13,25 @@ import lombok.extern.slf4j.Slf4j;
  */
 @Slf4j
 public class Q326 {
-    public static void main(String[] args) {
-        System.out.println(new Q326().isPowerOfThree(0));
-        System.out.println(new Q326().isPowerOfThree(1));
-        System.out.println(new Q326().isPowerOfThree(2));
-        System.out.println(new Q326().isPowerOfThree(3));
-        System.out.println(new Q326().isPowerOfThree(4));
-        System.out.println(new Q326().isPowerOfThree(8888));
-        System.out.println(new Q326().isPowerOfThree(2147483647));
-    }
-    public boolean isPowerOfThree(int n) {
-        if (n == 0) {
-            return false;
-        }
-        int i = 1;
-        while (i>0&& i < n) {
-            i = i * 3;
-        }
-        return i == n;
-    }
+	@Test
+	public void test1() {
+        Assert.assertFalse(isPowerOfThree(0));
+        Assert.assertTrue(isPowerOfThree(1));
+        Assert.assertFalse(isPowerOfThree(2));
+        Assert.assertTrue(isPowerOfThree(3));
+        Assert.assertFalse(isPowerOfThree(4));
+        Assert.assertFalse(isPowerOfThree(8888));
+        Assert.assertFalse(isPowerOfThree(2147483647));
+	}
+
+	public boolean isPowerOfThree(int n) {
+		if (n == 0) {
+			return false;
+		}
+		int i = 1;
+		while (i > 0 && i < n) {
+			i = i * 3;
+		}
+		return i == n;
+	}
 }
