@@ -5,6 +5,7 @@ import org.junit.Assert;
 import org.junit.Test;
 
 import java.util.*;
+import java.util.stream.Collectors;
 
 /**
  * @Title: Q414
@@ -26,7 +27,7 @@ public class Q414 {
         Set<Integer> sets = new TreeSet<>(new Comparator<Integer>() {
             @Override
             public int compare(Integer o1, Integer o2) {
-                return o2-o1;
+                return o2 - o1;
             }
         });
         sets.add(1);
@@ -35,7 +36,21 @@ public class Q414 {
         System.out.println(Arrays.toString(sets.toArray(new Integer[]{})));
     }
 
+    @Test
+    public void test3() {
+        Assert.assertEquals(1, thirdMax(new int[]{-2147483648, -2147483648, -2147483648, -2147483648, 1, 1, 1}));
+    }
+
     public int thirdMax(int[] nums) {
+        List<Integer> list = Arrays.stream(nums).distinct().sorted().boxed().collect(Collectors.toList());
+        if (list.size() > 2) {
+            return list.get(list.size() - 1 - 2);
+        } else {
+            return list.get(list.size() - 1);
+        }
+    }
+
+    public int thirdMax3(int[] nums) {
         Set<Integer> sets = new TreeSet<>(new Comparator<Integer>() {
             @Override
             public int compare(Integer o1, Integer o2) {
