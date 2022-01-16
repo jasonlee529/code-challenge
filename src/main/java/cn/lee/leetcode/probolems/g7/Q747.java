@@ -1,5 +1,7 @@
 package cn.lee.leetcode.probolems.g7;
 
+import java.util.UUID;
+
 import lombok.extern.slf4j.Slf4j;
 import org.junit.Assert;
 import org.junit.Test;
@@ -61,5 +63,9 @@ public class Q747 {
 	@Test
 	public void test5() {
 		Assert.assertEquals(0, dominantIndex(new int[]{1,0}));
+	}
+	@Test
+	public void test6() {
+		System.out.println(UUID.randomUUID().toString());
 	}
 }
