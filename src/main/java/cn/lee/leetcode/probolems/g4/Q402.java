@@ -28,26 +28,23 @@ public class Q402 {
 		Assert.assertEquals("0", removeKdigits("10", 2));
 	}
 
+	@Test
+	public void test_4() {
+		Assert.assertEquals("11", removeKdigits("112", 1));
+	}
+
+	@Test
+	public void test_5() {
+		Assert.assertEquals("112", removeKdigits("1129", 1));
+	}
+
+	@Test
+	public void test_6() {
+		Assert.assertEquals("12", removeKdigits("129", 1));
+	}
+
 	public String removeKdigits(String num, int k) {
-		if (k >= num.length()) {
-			return "0";
-		}
-		while (k > 0 || (num.length() > 0 && num.charAt(0) == '0')) {
-			if (num.charAt(0) == '0') {
-				num = num.substring(1);
-				continue;
-			}
-			if (num.charAt(0) < num.charAt(1)) {
-				num = num.charAt(0) + num.substring(2);
-			} else {
-				num = num.substring(1);
-			}
-			k--;
-//			log.info("{},{}", num, k);
-		}
-		if(num.length()==0){
-			return "0";
-		}
+
 		return num;
 	}
 }

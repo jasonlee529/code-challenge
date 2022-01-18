@@ -33,6 +33,12 @@ public class Q628 {
     public void test4() {
         Assert.assertEquals(39200, maximumProduct(new int[]{-100,-98,-1,2,3,4}));
     }
+
+    @Test
+    public void test_5() {
+        Assert.assertEquals(39200, maximumProduct(new int[]{-100,-98,-1,2,3,4}));
+    }
+
     public int maximumProduct(int[] nums) {
         if (nums.length == 0) {
             return 0;
