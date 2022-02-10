@@ -28,9 +28,12 @@ public class Q82 {
 	}
 
 	public ListNode deleteDuplicates(ListNode head) {
+		if (head == null) {
+			return null;
+		}
 		ListNode pre = null;
 		ListNode cur = head;
-		while (cur.next != null) {
+		while (cur != null && cur.next != null) {
 			if (cur.next.val == cur.val) {
 				int val = cur.val;
 				while (cur.next != null && cur.next.val == val) {
@@ -43,11 +46,11 @@ public class Q82 {
 						pre = cur;
 					} else {
 						pre.next = cur.next;
-						cur=cur.next;
+						cur = cur.next;
 					}
 				}
 			} else {
-				pre=cur;
+				pre = cur;
 				cur = cur.next;
 			}
 		}
