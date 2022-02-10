@@ -33,7 +33,9 @@ public class Q29 {
 	public int divide(int a, int b) {
 		int MIN = Integer.MIN_VALUE, MAX = Integer.MAX_VALUE;
 		int LIMIT = -1073741824; // MIN 的一半
-		if (a == MIN && b == -1) return MAX;
+		if (a == MIN && b == -1) {
+			return MAX;
+		}
 		boolean flag = false;
 		if ((a > 0 && b < 0) || (a < 0 && b > 0)) flag = true;
 		if (a > 0) a = -a;
