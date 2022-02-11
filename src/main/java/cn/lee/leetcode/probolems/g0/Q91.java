@@ -32,10 +32,12 @@ public class Q91 {
 	public void test3() {
 		Assert.assertEquals(0, numDecodings("0"));
 	}
+
 	@Test
 	public void test4() {
 		Assert.assertEquals(1, numDecodings("27"));
 	}
+
 	public int numDecodings(String s) {
 		List<List<String>> res = new ArrayList<>();
 		Stack<String> path = new Stack<>();
@@ -57,7 +59,7 @@ public class Q91 {
 		path.pop();
 		if (begin + 2 <= s.length()) {
 			s1 = s.substring(begin, begin + 2);
-			if(Integer.parseInt(s1)>26){
+			if (Integer.parseInt(s1) > 26) {
 				return;
 			}
 			path.add(s1);
