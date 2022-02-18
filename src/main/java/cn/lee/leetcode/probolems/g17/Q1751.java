@@ -1,5 +1,6 @@
 package cn.lee.leetcode.probolems.g17;
 
+import java.util.Arrays;
 import java.util.Comparator;
 import java.util.PriorityQueue;
 import java.util.Stack;
@@ -20,7 +21,14 @@ import org.slf4j.LoggerFactory;
 @Slf4j
 public class Q1751 {
 
-	public int maxValue(int[][] events, int k) {
+	public int maxValue(int[][] es, int k) {
+		int n = es.length;
+		int[][] fs = new int[n][k];
+		return 0;
+	}
+
+
+	public int maxValue2(int[][] events, int k) {
 		int res = 0;
 		PriorityQueue<Integer> queue = new PriorityQueue<>(new Comparator<Integer>() {
 			@Override
