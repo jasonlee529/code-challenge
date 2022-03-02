@@ -15,32 +15,22 @@ import org.slf4j.LoggerFactory;
  */
 @Slf4j
 public class Q1576 {
-	char[]arr=new char[26];
+
 	public String modifyString(String s) {
-		for(int i=0;i<26;i++){
-			arr[i]=(char)('a'+i);
-		}
-		StringBuilder sb = new StringBuilder();
-		for (int i = 0; i < s.length(); i++) {
-			if (s.charAt(i) == '?') {
-				sb.append(find(s, i));
-			} else {
-				sb.append(s.charAt(i));
+		int n = s.length();
+		char[] arr = s.toCharArray();
+		for (int i = 0; i < n; ++i) {
+			if (arr[i] == '?') {
+				for (char ch = 'a'; ch <= 'c'; ++ch) {
+					if ((i > 0 && arr[i - 1] == ch) || (i < n - 1 && arr[i + 1] == ch)) {
+						continue;
+					}
+					arr[i] = ch;
+					break;
+				}
 			}
 		}
-		return sb.toString();
-	}
-
-	private char find(String s, int i) {
-		if (i == 0 && i == s.length() - 1) {
-			return 'a';
-		} else if (i == 0) {
-			return  arr[s.charAt(i+1)+1%26];
-		}else if(i==s.length()-1){
-			return arr[s.charAt(i-1)+1%26];
-		}else{
-			return arr[s.charAt(i-1)+1%26];
-		}
+		return new String(arr);
 	}
 
 	@Test

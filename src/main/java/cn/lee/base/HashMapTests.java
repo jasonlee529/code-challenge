@@ -1,5 +1,8 @@
 package cn.lee.base;
 
+import java.util.HashMap;
+import java.util.Map;
+
 import lombok.extern.slf4j.Slf4j;
 import org.junit.Test;
 
@@ -35,8 +38,14 @@ public class HashMapTests {
 	@Test
 	public void test2() {
 		for (int i = 0; i < 100; i++) {
-			System.out.println(String.format("i= %d ==> n= %s, %s", i, Integer.toBinaryString(i), Integer.toBinaryString(i>>>1)));
+			System.out.println(String.format("i= %d ==> n= %s, %s", i, Integer.toBinaryString(i), Integer.toBinaryString(i >>> 1)));
 		}
+	}
+
+	@Test
+	public void test_3() {
+		Map map = new HashMap<>(20);
+		map.put(1, 1);
 	}
 
 	static final int tableSizeFor(int cap) {
