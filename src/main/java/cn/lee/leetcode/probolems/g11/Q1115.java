@@ -15,7 +15,7 @@ import java.util.concurrent.Semaphore;
 @Slf4j
 public class Q1115 {
     public static void main(String[] args) throws InterruptedException {
-        FooBar foo = new FooBar(1);
+        FooBar foo = new FooBar(10);
         Thread t1 = new Thread(new Runnable() {
             @SneakyThrows
             @Override
