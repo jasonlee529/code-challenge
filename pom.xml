@@ -7,6 +7,10 @@
     <groupId>cn.lee</groupId>
     <artifactId>code-challenge</artifactId>
     <version>1.0-SNAPSHOT</version>
+    <packaging>pom</packaging>
+    <modules>
+        <module>leetcode</module>
+    </modules>
 
     <dependencies>
 
