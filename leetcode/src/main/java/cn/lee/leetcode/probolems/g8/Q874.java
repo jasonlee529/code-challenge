@@ -59,13 +59,13 @@ public class Q874 {
         Assert.assertEquals(25, robotSim(new int[]{4, -1, 3}, new int[][]{}));
         Assert.assertEquals(65, robotSim(new int[]{4, -1, 4, -2, 4}, new int[][]{{2, 4}}));
         Assert.assertEquals(36, robotSim(new int[]{6,-1,-1,6}, new int[][]{}));
-
+        Assert.assertEquals(0, robotSim(new int[]{-2,-1,8,9,6}, new int[][]{{-1,3},{0,1},{-1,5},{-2,-4},{5,4},{-2,-3},{5,-1},{1,-1},{5,5},{5,2}}));
     }
 
     public static int robotSim(int[] commands, int[][] obstacles) {
         int res = 0;
         String dir = "+Y";
-        int x =3*1000, y = 3*1000;
+        int x =3*10000, y = 3*10000;
         int[][] all = new int[2 * x][2 * y];
         // 初始位置
         int[] pos = new int[]{x, y};
@@ -80,8 +80,8 @@ public class Q874 {
                 int t = 0;
                 boolean move = true;
                 while (t < command && move) {
-                    movePos(dir, pos);
                     move = canMove(dir, pos, all);
+                   if(move) movePos(dir, pos);
                     t++;
                 }
                 res = Math.max(res,(pos[0] - x) * (pos[0] - x) + (pos[1] - y) * (pos[1] - y));
